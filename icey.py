@@ -1,4 +1,5 @@
 from tkinter import Tk, HIDDEN, NORMAL, Canvas
+from typing import NoReturn
 
 win= Tk()
 win.title('Icey')
@@ -9,7 +10,7 @@ c.body_color = 'white'
 ear_left = c.create_oval(85-20,10,85*2-20,90 , outline="black" , fill=c.body_color)
 ear_right = c.create_oval(400-(85*2-20),10,400-85+20,90 , outline="black" , fill=c.body_color)
 
-body = c.create_oval(35, 20, 365, 350, outline="black", fill=c.body_color)
+body = c.create_oval(35, 20, 365, 360, outline="black", fill=c.body_color)
 
 eye_left = c.create_oval(140,150,170,180,outline='black' , fill="black")
 eye_right = c.create_oval(240,150,270,180,outline='black' , fill="black")
