@@ -1,5 +1,10 @@
 from tkinter import Tk, HIDDEN, NORMAL, Canvas
+from tkinter.constants import COMMAND
 from typing import NoReturn
+from pygame import mixer
+mixer.init(44100)
+d1 = mixer.Sound("happy.mp3")
+d2 = mixer.Sound("toggle.mp3")
 
 def toggle_eyes():
     current_state = c.itemcget(eye_left , 'state')
@@ -26,6 +31,7 @@ def toggle_tongue():
     if not c.tonque_out:
         c.itemconfigure(tongue_tip , state = NORMAL)
         c.itemconfigure(tongue_main , state = NORMAL)
+        d2.play()
         c.tonque_out = True
     else:
         c.itemconfigure(tongue_tip , state = HIDDEN)
@@ -47,6 +53,7 @@ def show_happy(event):
         c.itemconfigure(mouth_happy , state = NORMAL)
         c.itemconfigure(mouth_normal , state = HIDDEN)
         c.itemconfigure(mouth_sad, state = HIDDEN)
+        d1.play()
         c.happy_level = 10
     return
 
@@ -66,6 +73,7 @@ def sad():
     else:
         c.happy_level -= 1
     win.after(500,sad)
+
 
 win= Tk()
 win.title('Icey')
@@ -87,6 +95,7 @@ nose_curve = c.create_line(150,200,200,180,250,200, smooth=1 , width=1 ,state=NO
 mouth_normal = c.create_line(180,250,200,260,220,250, smooth=1 , width=2 ,state=NORMAL)
 mouth_happy = c.create_line(170,250,200,282,230,250,smooth=1 , width=2 , state=HIDDEN)
 mouth_sad = c.create_line(170,250,200,230,230,250,smooth=1 , width=2 , state=HIDDEN)
+mouth_angry = c.create_line(170,250,200,230,230,250,smooth=1 , width=2 , state=HIDDEN)
 
 cheek_left = c.create_oval(70,180,120,230,outline='pink' , fill='pink',state=HIDDEN)
 cheek_right = c.create_oval(280,180,330,230,outline='lightpink' , fill='pink',state=HIDDEN)
