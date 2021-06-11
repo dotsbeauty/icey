@@ -12,7 +12,7 @@ Pet is inspired from icey of "We bear bears".
 * typing
 
 
-###Normal Face:
+### Normal Face:
 
 ![image](https://user-images.githubusercontent.com/67326784/121724834-0dff2780-cb06-11eb-8b82-aea47cee8eba.png)
 
